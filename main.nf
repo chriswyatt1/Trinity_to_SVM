@@ -39,6 +39,7 @@ log.info """\
 //================================================================================
 
 include { SVM } from './modules/svm.nf'
+include { DOWNLOAD } from './modules/download.nf'
 
 in_name = channel
 	.from(params.name)
