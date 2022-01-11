@@ -1,6 +1,5 @@
 process DOWNLOAD {
     label 'download'
-    stageInMode 'copy'
                
     output:
         path("") , emit: fasta_files
