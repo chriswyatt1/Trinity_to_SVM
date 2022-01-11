@@ -65,6 +65,7 @@ in_scri = channel
         .ifEmpty { error "Cannot find the scripts folder: ${params.scri}" }
 
 workflow {
+	DOWNLOAD ()
 	SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri )
 }
 
