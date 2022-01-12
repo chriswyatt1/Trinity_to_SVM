@@ -57,17 +57,13 @@ in_cpm = channel
         .from(params.cpm)
         .ifEmpty { error "Cannot find the counts per million filter: ${params.cpm}" }
 
-in_data = channel
-        .fromPath(params.data)
-        .ifEmpty { error "Cannot find the name of the data folder: ${params.data}" }
-
 in_scri = channel
         .fromPath(params.scri)
         .ifEmpty { error "Cannot find the scripts folder: ${params.scri}" }
 
 workflow {
 	DOWNLOAD ()
-	SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri )
+	SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.input_data , in_scri )
 }
 
 workflow.onComplete {
