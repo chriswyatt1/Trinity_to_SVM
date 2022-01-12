@@ -67,7 +67,7 @@ in_scri = channel
 
 workflow {
 	DOWNLOAD ()
-	SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri )
+	SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.in_data , in_scri )
 }
 
 workflow.onComplete {
