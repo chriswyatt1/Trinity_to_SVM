@@ -2,7 +2,7 @@ process DOWNLOAD {
     label 'download'
                
     output:
-        path("") , emit: fasta_files
+        path("DATA") , emit: input_data
 
     script:
     """
