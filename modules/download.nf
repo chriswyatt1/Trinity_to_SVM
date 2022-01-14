@@ -9,7 +9,7 @@ process DOWNLOAD {
 	wget https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159973/suppl/GSE159973_FASTA_files.tar.gz
 	tar -xf GSE159973_FASTA_files.tar.gz
 	wget https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159973/suppl/GSE159973_RSEM_results.tar.gz
-	tar -xf 
+	tar -xf GSE159973_RSEM_results.tar.gz 
 	mkdir DATA
 	mkdir DATA/Experimental_data_merged
 	
@@ -25,7 +25,7 @@ process DOWNLOAD {
 	mkdir DATA/Experimental_data_merged/Angiopolybia_pallens/Pool
 	mkdir DATA/Experimental_data_merged/Angiopolybia_pallens/Queen
 	mkdir DATA/Experimental_data_merged/Angiopolybia_pallens/Worker
-	mv Agelaia_trinity.fnn.fasta DATA/Experimental_data_merged/Angiopolybia_pallens/Pool/Pool_trinity.fnn
+	mv Angiopolybia_trinity.fnn.fasta DATA/Experimental_data_merged/Angiopolybia_pallens/Pool/Pool_trinity.fnn
 	mv Angiopolybia_pallens_Queen_RSEM.isoforms.results.txt DATA/Experimental_data_merged/Angiopolybia_pallens/Queen/RSEM.isoforms.results
 	mv Angiopolybia_pallens_Worker_RSEM.isoforms.results.txt DATA/Experimental_data_merged/Angiopolybia_pallens/Worker/RSEM.isoforms.results
 

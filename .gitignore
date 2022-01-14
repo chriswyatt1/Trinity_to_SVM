@@ -9,3 +9,5 @@ trace*
 results/*
 TB*
 DATA/Experimental_data_merged
+Results_of_SVM
+All_summarised_GOLD.tsv

@@ -15,7 +15,7 @@ nextflow.enable.dsl = 2
 
 /*
  * Default pipeline parameters (on test data). They can be overriden on the command line eg.
- * given `params.genome` specify on the run command line `--genome /path/to/Duck_genome.fasta`.
+ * given `params.name` specify on the run command line `--name My_run_v1`.
  */
 
 params.name="Default"
@@ -27,6 +27,7 @@ params.data="DATA"
 params.datafolder="Experimental_data_merged"
 params.orthofinder="DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
 params.scri="scripts"
+params.example = false
 
 log.info """\
  ===================================
@@ -61,9 +62,21 @@ in_scri = channel
         .fromPath(params.scri)
         .ifEmpty { error "Cannot find the scripts folder: ${params.scri}" }
 
+//in_orth = channel
+//	.fromPath(params.orthofinder)
+//	.ifEmpty { error "Cannot find the orthofinder file: ${params.orthofinder}" }
+
 workflow {
-	DOWNLOAD ()
-	SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.input_data , in_scri )
+	if (params.example){
+		DOWNLOAD ()
+		SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.input_data , in_scri )
+	}
+	else{
+		in_data = channel
+	        .fromPath(params.data)
+	        .ifEmpty { error "Cannot find the orthofinder file: ${params.data}" }
+		SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri )
+	}
 }
 
 workflow.onComplete {

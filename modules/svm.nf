@@ -10,10 +10,11 @@ process SVM {
 	val cpm
 	path data_folder
 	path scripts
+	//path orth
                
     output:
-        path("./FIGURES/Figure_of_Classifiers/${name}/*.pdf") , emit: figures
-	path("./FIGURES/Figure_of_Classifiers/${name}/*.tsv") , emit: result
+        path("./FIGURES/Figure_of_Classifiers/${name}/Classification_confidence_leave-one-out-Default.ChrisCorrect.queen.pdf") , emit: figures
+	// path("./FIGURES/Figure_of_Classifiers/${name}/*.tsv") , emit: result
 
     script:
     """
