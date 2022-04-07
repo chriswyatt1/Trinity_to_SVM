@@ -2,15 +2,18 @@ Nextflow pipeline to automate SVM predictions from Wyatt et al. 2020 (https://ww
 
 **Requirements:**
 Git
-Docker (if locally) / Singularity (for a university cluster). This will pull the container `chriswyatt/perl_r_e1071:latest`, so you don't need to worry about installing any packages to get the program to work
+Docker (if locally) / Singularity (for a university cluster). 
+-> This will pull the container `chriswyatt/perl_r_e1071:latest`, so you don't need to worry about installing any packages to get the program to work
 
 **Step 1. Git clone the repo to your local or university cluster.**
 
 `git clone https://github.com/chriswyatt1/Trinity_to_SVM`
 
+`cd Trinity_to_SVM`
+
 **Step 2. Step up your environment**
 
-You have a choice whether to run locally or on a computer cluster. 
+You have a choice whether to run locally with docker or on a computer cluster with singularity. 
 
 To run on a Sun Grid Engine cluster, we can use the nextflow profile flag in step 3:
 
@@ -18,7 +21,9 @@ To run on a Sun Grid Engine cluster, we can use the nextflow profile flag in ste
 
 For other cluster type, please ask us, and we can try to help. Create an issue, if you wish.
 
-If locally, then you don't need to set the -profile flag.
+If locally, then you need to set the -profile flag to docker (and have docker installed and activated on your machine).
+
+`-profile docker`
 
 **Step 3. Run the script**
 
