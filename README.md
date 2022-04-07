@@ -26,7 +26,7 @@ To run the papers data , enter in your terminal:
 
 `nextflow run main.nf -bg`
 
-This will run an example dataset though the pipeline, locally on your machine. This could potentially take days, so normally this is better run on a high performance university cluster (see step 2).
+This download the data from NCBI, then run an example SVM test. This could potentially take days, so normally this is better run on a high performance university cluster (see step 2).
 
 These are the flags you can change in the script:
 
@@ -59,4 +59,29 @@ params.orthofinder="DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
 
 The above default running of nextflow would run the following SVM perl script:
 
-``
+`Master.ML.pl -j ${name} -CPM $cpm -f $test -b $background -e $params.datafolder -orth $params.orthofinder -r`
+
+Which will be with default parameters listed above:
+
+`Master.ML.pl -j Default -CPM 10 -f Angiopolybia_pallens -b Vespula_vulgaris,Vespa_crabro,Metapolybia_cingulata,Polybia_quadracincta -e Experimental_data_merged -orth DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv -r`
+
+`-r` is to tell the script to execute, and not just perform a dry run.
+
+To change the parameters in Nextflow, listed above, you need to use two dashes (--). 
+
+E.g. to change the tested species to Polstes_canadensis, I would submit:
+
+`nextflow run main.nf -bg --test Polistes_canadensis`
+
+Though I would also like to change the output folde name, so it does not write over an existing analysis:
+
+`nextflow run main.nf -bg --test Polistes_canadensis --name Polistes_test`
+
+If I wanted to configure this to run on Sun Grid engine, I need to use the single dash (-), that is reserved for the Nextflow parameters, not the ones defined in the script (e.g. --name and --cpm). e.g.:
+
+`nextflow run main.nf -bg -profile myriad --test Polistes_canadensis --name Polistes_test`
+
+
+**Output**
+
+Once it has completed you should have a results folder, with the progressive filtering SVM classification plots from Figure 4, plus tables that describe the numbers and genes used in each model.
