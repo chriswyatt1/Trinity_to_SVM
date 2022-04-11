@@ -1,8 +1,20 @@
+# Multispecies_paper_ML Trinity to SVM
+
+A Nextflow pipeline to run SVM on Trinity assembly data, categorising caste in pairs of samples (Queen and Worker). One replicate per species.
+
+This is the code ran to create the Multispecies paper SVM progressive filtering plots and associated tables (Wyatt et al. Unpublished). 
+
+Run the Nextflow pipeline with default settings will download the public data from the paper, including the Trinity assemblies and RSEm counts. Then perform SVM machine learning, across multiple species each with a single replicate for queen (1) or worker (0). 
+
+Please contact the authors if you wish to embark on a similar analysis, as likely the scripts would have to be changed for another specific analysis.
+
+# Nextflow pipeline to replicate SVM analysis
+
 Nextflow pipeline to automate SVM predictions from Wyatt et al. 2020 (https://www.biorxiv.org/content/10.1101/2020.12.08.407056v2).
 
 **Requirements:**
 Git
-Docker (if locally) / Singularity (for a university cluster). 
+Docker (if run locally) / Singularity (for a university cluster). 
 -> This will pull the container `chriswyatt/perl_r_e1071:latest`, so you don't need to worry about installing any packages to get the program to work
 
 **Step 1. Git clone the repo to your local or university cluster.**
@@ -90,3 +102,4 @@ If I wanted to configure this to run on Sun Grid engine, I need to use the singl
 **Output**
 
 Once it has completed you should have a results folder, with the progressive filtering SVM classification plots from Figure 4, plus tables that describe the numbers and genes used in each model.
+
