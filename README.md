@@ -1,10 +1,10 @@
-# Multispecies_paper_ML Trinity to SVM
+# Nextflow pipeline (Transcriptome assemblies to SVM of castes)
 
-A Nextflow pipeline to run SVM on Trinity assembly data, categorising caste in pairs of samples (Queen and Worker). One replicate per species.
+A Nextflow pipeline to run SVM on Trinity assembly data, categorising caste in pairs of samples (1 Queen and 1 Worker per species). To understand the structure of the main script, refer to https://github.com/Sumner-lab/Multispecies_paper_ML. This Nextflow script acts as a way to run the papers data without seeing the code structure.
 
-This is the code ran to create the Multispecies paper SVM progressive filtering plots and associated tables (Wyatt et al. Unpublished). 
+The script will create the Multispecies paper SVM progressive filtering plots and associated tables (Wyatt et al. Unpublished). 
 
-Run the Nextflow pipeline with default settings will download the public data from the paper, including the Trinity assemblies and RSEm counts. Then perform SVM machine learning, across multiple species each with a single replicate for queen (1) or worker (0). 
+Running the Nextflow pipeline with default settings will download the public data from the paper, including the Trinity assemblies and RSEM counts. Then perform SVM machine learning, across multiple species each with a single replicate for queen (1) or worker (0). 
 
 Please contact the authors if you wish to embark on a similar analysis, as likely the scripts would have to be changed for another specific analysis.
 
