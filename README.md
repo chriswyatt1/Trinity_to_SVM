@@ -103,3 +103,26 @@ If I wanted to configure this to run on Sun Grid engine, I need to use the singl
 
 Once it has completed you should have a results folder, with the progressive filtering SVM classification plots from Figure 4, plus tables that describe the numbers and genes used in each model.
 
+**Software**
+
+All software are included in two docker containers directed in the conf folder. 
+These use the following base programs:
+  - "r-base=4.1.0"
+  - "r-devtools=2.4.2"
+  - "python=3.7"
+  - perl
+  - wget
+  - 
+Along with the default versions of the following R packages:
+BiocManager
+tximport
+tximportData
+edgeR
+seqinr
+stringr
+pheatmap
+e1071
+kernlab
+probsvm
+ggfortify
+
