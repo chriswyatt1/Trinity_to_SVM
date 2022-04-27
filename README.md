@@ -105,15 +105,16 @@ Once it has completed you should have a results folder, with the progressive fil
 
 **Software**
 
-All software are included in two docker containers directed in the conf folder. 
-These use the following base programs:
+All software are included in two docker containers directed in the conf folder. Docker containers mean that the operating systems is not relevant, as the code is executed in a separate docker envirinment.
+
+The repo uses the following base programs:
   - "r-base=4.1.0"
   - "r-devtools=2.4.2"
   - "python=3.7"
   - perl
   - wget
-  - 
-Along with the default versions of the following R packages:
+  
+Along with the default versions of the following R packages (given r base 4.1.0):
 BiocManager
 tximport
 tximportData
