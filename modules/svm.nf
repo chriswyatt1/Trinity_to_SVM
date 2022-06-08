@@ -10,7 +10,7 @@ process SVM {
 	val cpm
 	path data_folder
 	path scripts
-	//path orth
+	path orth
                
     output:
         path("./FIGURES/Figure_of_Classifiers/${name}/Classification_confidence_leave-one-out-Default.ChrisCorrect.queen.pdf") , emit: figures
@@ -18,6 +18,6 @@ process SVM {
 
     script:
     """
-	Master.ML.pl -j ${name} -CPM $cpm -f $test -b $background -e $params.datafolder -orth $params.orthofinder -r
+	Master.ML.pl -j ${name} -CPM $cpm -f $test -b $background -e $params.datafolder -orth $orth -r
     """
 }
