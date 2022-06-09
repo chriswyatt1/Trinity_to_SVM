@@ -49,6 +49,7 @@ in_name = channel
 in_test = channel
         .fromPath(params.test)
 		.splitCsv()
+		.flatten()
         .ifEmpty { error "Cannot find the test name: ${params.test}" }
 
 in_back = channel
@@ -66,8 +67,6 @@ in_scri = channel
 in_orth = channel
 	.fromPath(params.orthofinder)
 	.ifEmpty { error "Cannot find the orthofinder file: ${params.orthofinder}" }
-
-in_test.view()
 
 workflow {
 	if (params.example){
