@@ -25,8 +25,8 @@ params.back="Vespula_vulgaris,Vespa_crabro,Metapolybia_cingulata,Polybia_quadrac
 params.cpm=10
 params.data="DATA"
 params.datafolder="Experimental_data_merged"
-params.orthofinder="DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
-params.scri="scripts"
+params.orthofinder="$projectDir/DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
+params.scri="$projectDir/scripts"
 params.example = false
 
 log.info """\
@@ -73,7 +73,7 @@ workflow {
 	if (params.example){
 		DOWNLOAD ()
 		//DOWNLOAD.out.view()
-		SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.input_data , in_scri , in_orth )
+		SVM ( params.name , in_test , params.back , params.cpm , DOWNLOAD.out.input_data , params.scri , params.orthofinder )
 	}
 	else{
 		in_data = channel
