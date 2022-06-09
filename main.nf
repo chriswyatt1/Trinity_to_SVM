@@ -47,7 +47,8 @@ in_name = channel
 	.ifEmpty { error "Cannot find the name of run: ${params.name}" }
 
 in_test = channel
-        .from(params.test)
+        .fromPath(params.test)
+		.splitCsv()
         .ifEmpty { error "Cannot find the test name: ${params.test}" }
 
 in_back = channel
@@ -66,16 +67,19 @@ in_orth = channel
 	.fromPath(params.orthofinder)
 	.ifEmpty { error "Cannot find the orthofinder file: ${params.orthofinder}" }
 
+in_test.view()
+
 workflow {
 	if (params.example){
 		DOWNLOAD ()
+		//DOWNLOAD.out.view()
 		SVM ( in_name , in_test , in_back , in_cpm , DOWNLOAD.out.input_data , in_scri , in_orth )
 	}
 	else{
 		in_data = channel
 	        .fromPath(params.data)
 	        .ifEmpty { error "Cannot find the orthofinder file: ${params.data}" }
-		SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri , in_orth )
+		//SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri , in_orth )
 	}
 }
 

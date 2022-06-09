@@ -1,5 +1,6 @@
 process SVM {
     label 'svm'
+    tag "RUN : $test"
     publishDir "$params.outdir/SVM_results/"
     stageInMode 'copy'
     
