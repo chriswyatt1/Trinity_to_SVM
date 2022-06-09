@@ -99,6 +99,18 @@ If I wanted to configure this to run on Sun Grid engine, I need to use the singl
 `nextflow run main.nf -bg -profile myriad --test Polistes_canadensis --name Polistes_test`
 
 
+**Testing on Gitpod**
+
+If you want to test the code in Gitpod, follow this link.
+
+  https://gitpod.io/#https://github.com/chriswyatt1/Trinity_to_SVM
+
+You can run the test data run by entering the following command:
+
+```
+nextflow run main.nf -bg -resume --test Polistes_canadensis --example true -profile docker --back Vespula_vulgaris,Vespa_crabro,Polybia_quadracincta
+```
+
 **Output**
 
 Once it has completed you should have a results folder, with the progressive filtering SVM classification plots from Figure 4, plus tables that describe the numbers and genes used in each model.
