@@ -98,6 +98,8 @@ If I wanted to configure this to run on Sun Grid engine, I need to use the singl
 
 `nextflow run main.nf -bg -profile myriad --test Polistes_canadensis --name Polistes_test`
 
+Or with docker (on gitpod, for example):
+`nextflow run main.nf -bg -profile docker --test Polistes_canadensis --back Metapolybia_cingulata,Polybia_quadracincta,Mischocyttarus_basimacula,Angiopolybia_pallens --name Polistes_test`
 
 **Output**
 
