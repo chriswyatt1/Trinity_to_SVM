@@ -78,7 +78,7 @@ workflow {
 		in_data = channel
 	        .fromPath(params.data)
 	        .ifEmpty { error "Cannot find the orthofinder file: ${params.data}" }
-		//SVM ( in_name , in_test , in_back , in_cpm , in_data , in_scri , in_orth )
+		SVM ( params.name , in_test , params.back , params.cpm , in_data , params.scri , params.orthofinder )
 	}
 }
 
