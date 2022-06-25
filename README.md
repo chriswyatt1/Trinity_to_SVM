@@ -27,7 +27,7 @@ Docker (if run locally) / Singularity (for a university cluster).
 
 You have a choice whether to run locally with docker or on a computer cluster with singularity. 
 
-To run on a Sun Grid Engine cluster, we can use the nextflow profile flag in step 3:
+To run on a Sun Grid Engine cluster (UCL HPC), we can use the nextflow profile flag:
 
 `-profile myriad` # This flag allows a configuration on sun grid engine.
 
@@ -36,6 +36,8 @@ For other cluster type, please ask us, and we can try to help. Create an issue, 
 If locally, then you need to set the -profile flag to docker (and have docker installed and activated on your machine).
 
 `-profile docker`
+
+EXTRA: You can also run a test in Gitpod (this is a closed cloud developer environment, which is free with a GitHub account login). All you need to do is follow this URL to get there: https://gitpod.io/#https://github.com/chriswyatt1/Trinity_to_SVM. Then you can ruin the demo example run for free and see how it works.  
 
 **Step 3. Run the script**
 
