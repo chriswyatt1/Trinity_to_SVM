@@ -41,9 +41,9 @@ If locally, then you need to set the -profile flag to docker (and have docker in
 
 To run the papers data , enter in your terminal:
 
-`nextflow run main.nf -bg`
+`nextflow run main.nf -bg --example true`
 
-This download the data from NCBI, then run an example SVM test. This could potentially take days, so normally this is better run on a high performance university cluster (see step 2).
+This download the data from NCBI, then run an example SVM test (which is Angiopolybia as the test, and Vespula_vulgaris,Vespa_crabro,Metapolybia_cingulata,Polybia_quadracincta as background[training sets]). This could potentially take days, so normally this is better run on a high performance university cluster (see step 2). The flag `--example true`, tells the script to download the database from NCBI first before trying to run the SVM. Without this flag, you would need to point to the location of this directory (using the --data flag to ./DATA).
 
 These are the flags you can change in the script:
 
@@ -56,6 +56,8 @@ params.cpm=10
 params.data="DATA"
 params.datafolder="Experimental_data_merged"
 params.orthofinder="DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
+params.scri="scripts"
+params.example = false
 ```
 
 `name` is a user chosen name for the output name
@@ -73,6 +75,10 @@ params.orthofinder="DATA/Orthofinder/Orthogroups.copy.noMac.csv.filt3.csv"
 `datafolder` is the name of the folder where the reads are. Most are default, so just leave as they are.
 
 `orthofinder` is the name of the exact orthofinder table used to determine the orthology between the genes in different species.
+
+`scri` is the folder name to store the scripts, default is "scripts".
+
+`example` is to tell nextflow to download the daat first before running.
 
 The above default running of nextflow would run the following SVM perl script:
 
@@ -98,8 +104,8 @@ If I wanted to configure this to run on Sun Grid engine, I need to use the singl
 
 `nextflow run main.nf -bg -profile myriad --test Polistes_canadensis --name Polistes_test`
 
-Or with docker (on gitpod, for example):
-`nextflow run main.nf -bg -profile docker --test Polistes_canadensis --back Metapolybia_cingulata,Polybia_quadracincta,Mischocyttarus_basimacula,Angiopolybia_pallens --name Polistes_test`
+Or with docker (on gitpod, for example, with --example flag that downloads the data first):
+`nextflow run main.nf -bg -profile docker --test Polistes_canadensis --back Metapolybia_cingulata,Polybia_quadracincta,Mischocyttarus_basimacula,Angiopolybia_pallens --name Polistes_test --example true`
 
 **Output**
 
